@@ -17,10 +17,10 @@ CHEST_ROWS = 6
 CHEST_COLS = 9
 
 CHEST_START = (
-    os.getenv('CHEST_START_X', 1135),
-    os.getenv('CHEST_START_Y', 545)
+    int(os.getenv('CHEST_START_X', 1135)),
+    int(os.getenv('CHEST_START_Y', 545))
 )
-CHEST_ITEM_INTERVAL = os.getenv('CHEST_ITEM_INTERVAL', 37)
+CHEST_ITEM_INTERVAL = int(os.getenv('CHEST_ITEM_INTERVAL', 37))
 
 def openChest():
     click(button=pynput.mouse.Button.right)
