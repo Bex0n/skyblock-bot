@@ -64,3 +64,5 @@ class Sheeper:
             return
         teleportToSell()
         sellItems("wool")
+        self.teleportToStation(self.curr_station)
+        time.sleep(120)

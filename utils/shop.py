@@ -42,4 +42,4 @@ def moveToWool():
     if is_running():
         moveForward(0.2)
         rotateDegrees(52)
-        moveForward(2.6)
+        moveForward(3)

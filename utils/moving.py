@@ -22,6 +22,7 @@ def rotateDegrees(degrees):
     if is_running():
         sign = 1 if degrees > 0 else -1
         degrees = abs(degrees)
+        degrees  = int(degrees * 1.08)
         while degrees > 0:
             mouse.move(DRAG_DISTANCE_PER_DEGREE * sign, 0)
             time.sleep(0.01)
