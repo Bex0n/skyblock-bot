@@ -11,7 +11,7 @@ from shared import is_running
 load_dotenv()
 
 # Define a variable which maps the pixels in moveRel to the degrees to rotate
-DRAG_DISTANCE_PER_DEGREE = float(os.getenv('DRAG_DISTANCE_PER_DEGREE', 12))
+DRAG_DISTANCE_PER_DEGREE = int(os.getenv('DRAG_DISTANCE_PER_DEGREE', 12))
 
 mouse = pynput.mouse.Controller()
 
@@ -23,13 +23,9 @@ def rotateDegrees(degrees):
         sign = 1 if degrees > 0 else -1
         degrees = abs(degrees)
         while degrees > 0:
-            # Drag the mouse by degrees so angle * drag_per_distance is integer
-            k = 1
-            while k * DRAG_DISTANCE_PER_DEGREE != round(k * DRAG_DISTANCE_PER_DEGREE):
-                k += 1
-            mouse.move(int(k * DRAG_DISTANCE_PER_DEGREE * sign), 0)
+            mouse.move(DRAG_DISTANCE_PER_DEGREE * sign, 0)
             time.sleep(0.01)
-            degrees -= k
+            degrees -= 1
 
 def moveForward(seconds):
     """
