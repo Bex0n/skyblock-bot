@@ -6,9 +6,9 @@ from utils.equipment import collectChest, openChest, closeChest
 
 from shared import is_running
 
-class Sheeper:
+class Cactuser:
     def __init__(self, cactus_stations):
-        self.sheep_stations = cactus_stations
+        self.cactus_stations = cactus_stations
         self.curr_station = 1
 
     def teleportToStation(self, station):
@@ -51,7 +51,7 @@ class Sheeper:
         self.teleportToStation(self.curr_station)
         self.colectCactusFromStation(self.curr_station)
         self.curr_station += 1
-        if self.curr_station > self.sheep_stations:
+        if self.curr_station > self.cactus_stations:
             self.curr_station = 1
 
     def earn(self):
