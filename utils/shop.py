@@ -22,6 +22,8 @@ def sellItems(item: str = None):
             moveToSugarCane()
         elif item == "wool":
             moveToWool()
+        elif item == "cactus":
+            moveToCactus()
         else:
             raise ValueError("Invalid item to sell")
 
@@ -43,3 +45,9 @@ def moveToWool():
         moveForward(0.2)
         rotateDegrees(52)
         moveForward(3)
+
+def moveToCactus():
+    if is_running():
+        moveForward(1.8)
+        rotateDegrees(-90)
+        moveForward(2)

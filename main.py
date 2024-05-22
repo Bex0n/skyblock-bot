@@ -8,6 +8,7 @@ import utils.moving as moving
 import utils.ocr_reader as ocr_reader
 
 from bots.sheeper import Sheeper
+from bots.cactuser import Cactuser
 from shared import running_event, stop_event, is_running
 
 def on_press(key):
@@ -28,9 +29,16 @@ def bot_actions():
             if is_running():
                 # START OF BOT ACTIONS #
 
+                print("Starting sheeper actions")
                 bot = Sheeper(sheep_stations=1)
-                print("Starting bot actions")
                 bot.earn()
+                print("Sheeper actions finished")
+                time.sleep(30)
+                print("Starting cactuser actions")
+                bot_2 = Cactuser(cactus_stations=1)
+                bot_2.earn()
+                print("Cactuser actions finished")
+                time.sleep(30)
 
                 # END OF BOT ACTIONS #
             time.sleep(1)
