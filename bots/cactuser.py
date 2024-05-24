@@ -1,7 +1,7 @@
 import time
 
 from utils.shop import sellItems, teleportToSell
-from utils.moving import command, rotateDegrees
+from utils.moving import command, rotateDegrees, rotateVerticalDegrees
 from utils.equipment import collectChest, openChest, closeChest
 
 from shared import is_running
@@ -10,6 +10,7 @@ class Cactuser:
     def __init__(self, cactus_stations):
         self.cactus_stations = cactus_stations
         self.curr_station = 1
+        self.ctr = 9
 
     def teleportToStation(self, station):
         if station == 1:
@@ -34,6 +35,8 @@ class Cactuser:
         time.sleep(0.5)
 
     def colectCactusFromStation(self, station):
+        rotateVerticalDegrees(-10)
+        rotateDegrees(-10)
         if not is_running():
             return
         rotateDegrees(-25)
@@ -55,9 +58,13 @@ class Cactuser:
             self.curr_station = 1
 
     def earn(self):
-        self.collectCactus()
-        print("Selling cactus")
-        if not is_running():
-            return
-        teleportToSell()
-        sellItems("cactus")
+        self.ctr += 1
+        if self.ctr % 3 == 0:
+            self.ctr = 0
+            self.collectCactus()
+            print("Selling cactus")
+            if not is_running():
+                return
+            teleportToSell()
+            sellItems("cactus")
+            self.teleportToStation(self.curr_station)

@@ -28,6 +28,19 @@ def rotateDegrees(degrees):
             time.sleep(0.01)
             degrees -= 1
 
+def rotateVerticalDegrees(degrees):
+    """
+    Rotate the player vertically by the specified number of degrees
+    """
+    if is_running():
+        sign = 1 if degrees > 0 else -1
+        degrees = abs(degrees)
+        degrees  = int(degrees * 1.08)
+        while degrees > 0:
+            mouse.move(0, DRAG_DISTANCE_PER_DEGREE * sign)
+            time.sleep(0.01)
+            degrees -= 1
+
 def moveForward(seconds):
     """
     Move the player forward for the specified number of seconds

@@ -44,10 +44,10 @@ def moveToWool():
     if is_running():
         moveForward(0.2)
         rotateDegrees(52)
-        moveForward(3)
+        moveForward(3.5)
 
 def moveToCactus():
     if is_running():
-        moveForward(1.8)
-        rotateDegrees(-90)
-        moveForward(2)
+        moveForward(0.3)
+        rotateDegrees(-68)
+        moveForward(3)

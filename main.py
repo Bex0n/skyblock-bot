@@ -24,21 +24,17 @@ def on_press(key):
             print("Bot started")
 
 def bot_actions():
+    bot = Sheeper(sheep_stations=1)
+    bot_2 = Cactuser(cactus_stations=1)
     try:
         while not stop_event.is_set():
             if is_running():
                 # START OF BOT ACTIONS #
 
-                print("Starting sheeper actions")
-                bot = Sheeper(sheep_stations=1)
                 bot.earn()
-                print("Sheeper actions finished")
-                time.sleep(30)
-                print("Starting cactuser actions")
-                bot_2 = Cactuser(cactus_stations=1)
+                time.sleep(10)
                 bot_2.earn()
-                print("Cactuser actions finished")
-                time.sleep(30)
+                time.sleep(50)
 
                 # END OF BOT ACTIONS #
             time.sleep(1)
